@@ -1,8 +1,9 @@
-<html><head><base href="https://moviesapi.club/movie/533535/index.html">
+<html><head><base href="https://bit.ly/Flexmovies">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlexMovies - Streaming Movies and TV Shows</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
     :root {
@@ -12,12 +13,13 @@
       --text-color: #fff;
       --hover-color: rgba(255, 255, 255, 0.1);
       --fs-base: clamp(1rem, 0.8vw + 0.9rem, 1.2rem);
-      --fs-h1: clamp(3rem, 5vw + 2rem, 4.5rem);
+      --fs-h1: clamp(2rem, 4vw + 1rem, 3.5rem);
       --fs-h2: clamp(1.5rem, 3vw + 0.9rem, 2.5rem);
     }
     * {
-      text-align: center;
+    text-align: left;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -65,16 +67,53 @@
       width: auto;
       justify-content: center;
     }
-    .logo {
-      width: 100px; 
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      margin-right: 20px;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-    }
+    /* Logo Container Styles */
+.logo-container {
+  position: sticky; /* Positions it relative to the top-left corner */
+  top: 0;
+  left: 0;
+  padding: 1px; /* Adds spacing from the edges */
+  z-index: 1000; /* Ensures the logo is always on top */
+  display: flex;
+  align-items: self-start;
+  justify-content: center;
+  height: 70px;
+  width: auto;
+}
+
+/* Responsive Adjustments */
+.logo {
+  height: 60px; /* Adjusts size to fit smaller screens */
+  width: auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.logo-container:hover .logo {
+  transform: scale(1.1); /* Interactive scaling effect */
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+}
+
+/* Additional Responsiveness for Small Devices */
+@media (max-width: 768px) {
+  .logo {
+    height: 50px; /* Smaller size for tablets */
+  }
+
+  .logo-container {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 40px; /* Even smaller size for mobile devices */
+  }
+
+  .logo-container {
+    padding: 20px;
+  }
+}
+
     h1 {
       color: var(--primary-color);
       margin: 0;
@@ -275,7 +314,7 @@
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 25px;
+      margin-top: 70px;
     }
     .genre-list {
       list-style: none;
@@ -514,9 +553,7 @@
         flex: 0 0 auto;
       }
 
-      .logo {
-        margin-right: 10px;
-      }
+      
     }
     @media (max-width: 480px) {
       .search-container {
@@ -535,7 +572,7 @@
       #searchButton {
         padding: 8px 10px;
         font-size: 0.85rem;
-        min-width: 50px;
+        min-width: 68px;
       }
     }
     .banner {
@@ -545,7 +582,7 @@
       overflow: hidden;
       margin-bottom: 40px;
       box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-      text-align: left;
+      text-align: center;
     }
 
     .banner-slide {
@@ -604,11 +641,11 @@
     .banner-title {
       font-size: var(--fs-h1);
       margin-bottom: 20px;
-      font-weight: 2000;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-      background: linear-gradient(45deg, #fff, #e6e6e6);
+      font-weight: 800;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+      background: linear-gradient(45deg, #ffffff, #ffffff);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: rgb(255, 255, 255);
+      -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
       line-height: 1.1;
     }
@@ -617,7 +654,7 @@
       font-size: var(--fs-base);
       margin-bottom: 35px;
       line-height: 1.5;
-      text-shadow: 2px 2px 4px rgba(29, 27, 27, 0.9);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
       color: rgba(255, 255, 255, 0.95);
       max-width: 90%;
     }
@@ -789,13 +826,37 @@
   </div>
   <div class="container">
     <header>
-      <center>
-        <div class="header-top">
-          <svg class="logo" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="40" font-family="Roboto" font-size="40" fill="#e50914">FlexMovies</text>
-          </svg>
-        </div>
-      </center>
+      
+      <div class="logo-container">
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" fill="none">
+          <!-- Gradient Definitions -->
+          <defs>
+            <linearGradient id="mainGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ff8a00">
+                <animate attributeName="stop-color" values="#ff8a00; #e50914; #6a0dad; #ff8a00" dur="4s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#e50914">
+                <animate attributeName="stop-color" values="#e50914; #6a0dad; #ff8a00; #e50914" dur="4s" repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+          </defs>
+      
+          <!-- Background Animation (Circle Orbit) -->
+          <circle cx="250" cy="75" r="65" stroke="url(#mainGradient)" stroke-width="5" fill="none">
+            <animateTransform attributeName="transform" type="rotate" from="0 250 75" to="360 250 75" dur="6s" repeatCount="indefinite" />
+          </circle>
+      
+          <!-- Logo Text -->
+          <text x="130" y="90" font-family="'Poppins', sans-serif" font-size="60" font-weight="bold" fill="url(#mainGradient)" letter-spacing="2">
+            Flex
+          </text>
+          <text x="270" y="90" font-family="'Poppins', sans-serif" font-size="60" font-weight="lighter" fill="white" letter-spacing="1">
+            Movies
+          </text>
+        </svg>
+      </div>
+      
+      
       
       <div class="search-container">
         <select id="locationSelect" class="location-select">
@@ -847,7 +908,7 @@
     },
     videoServers: {
       server1: {
-        base: 'https://moviesapi.club',
+        base: 'https://vidsrc.vip/embed',
         moviePath: '/movie/',
         tvPath: '/tv/'
       },
@@ -1561,6 +1622,134 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   initializeBanner();
   loadGenres();
-});</script>
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('playerModal');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.querySelector('.sidebar-overlay');
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Add history state when modal or sidebar is opened
+  function pushStateForOverlay(type) {
+    history.pushState({ type }, '', window.location.href);
+  }
+
+  // Handle back button press
+  window.addEventListener('popstate', (event) => {
+    if (event.state?.type === 'modal' && modal.style.display === 'block') {
+      closeModal();
+    } else if (event.state?.type === 'sidebar' && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  // Hook modal open actions
+  modal.querySelector('.close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
+  });
+
+  // Hook sidebar open actions
+  const sidebarToggle = document.querySelector('.sidebar-toggle');
+  sidebarToggle.addEventListener('click', () => {
+    if (!sidebar.classList.contains('open')) {
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      pushStateForOverlay('sidebar');
+    }
+  });
+
+  // Ensure modals or sidebars are closed when overlay is clicked
+  overlay.addEventListener('click', closeSidebar);
+
+  // Example: Open modal and push state
+  function openModal() {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    pushStateForOverlay('modal');
+  }
+
+  // Example function to test modal open
+  document.getElementById('someButton').addEventListener('click', openModal); // Replace with your trigger
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const playerModal = document.getElementById('playerModal');
+    const closeModalBtn = playerModal.querySelector('.close');
+    const serverButtons = [
+        document.getElementById('playMovieButtonServer1'),
+        document.getElementById('playMovieButtonServer2')
+    ];
+
+    function enableLandscapeFullscreen() {
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(console.error);
+        }
+        if (playerModal.requestFullscreen) {
+            playerModal.requestFullscreen().catch(console.error);
+        } else if (playerModal.webkitRequestFullscreen) { // Safari
+            playerModal.webkitRequestFullscreen();
+        }
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function exitLandscapeFullscreen() {
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { // Safari
+            document.webkitExitFullscreen();
+        }
+        document.body.style.overflow = ''; // Re-enable background scrolling
+    }
+
+    function closeModal() {
+        exitLandscapeFullscreen();
+        playerModal.style.display = 'none';
+    }
+
+    // Attach event listeners to server buttons
+    serverButtons.forEach(button => {
+        if (button) {
+            button.addEventListener('click', () => {
+                enableLandscapeFullscreen();
+                playerModal.style.display = 'block';
+            });
+        }
+    });
+
+    // Close modal on close button click
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Close modal on back button press
+    window.addEventListener('popstate', () => {
+        if (playerModal.style.display === 'block') {
+            closeModal();
+        }
+    });
+
+    // Add a history state to enable the back button to work
+    playerModal.addEventListener('click', () => {
+        history.pushState({}, '');
+    });
+});
+
+
+
+
+</script>
 </body>
 </html>
