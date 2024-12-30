@@ -1,9 +1,10 @@
 <html><head><base href="https://bit.ly/Flexmovies">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlexMovies - Streaming Movies and TV Shows</title>
+  <title>FlexMovies - Streaming and Download Movies and TV Shows for free</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-
+  
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
     :root {
@@ -808,6 +809,13 @@
       width: 100%; 
       z-index: 10; 
     }
+    .note-message {
+    color: red;
+    text-align: center;
+    font-size: 1rem;
+    margin: 20px 0;
+}
+
   </style>
 </head>
 <body><center>
@@ -819,9 +827,12 @@
   </div>
   <div class="banner" id="banner">
     <!-- Banner slides will be inserted here by JavaScript -->
-    <div class="warning-message">Alert: If redirected, come back immediately. Redirections will be deactivated.</div>
-    <div class="warning-message" style="background-color: #e50914; color: #fff; padding: 10px; text-align: center; font-size: 1.2rem; position: absolute; bottom: 0; width: 100%;">
-      Alert: If redirected, come back immediately. Redirections will be deactivated.
+    <div class="note-message">
+      Note: You will be redirected once or twice just come back, and after that, it will deactivate.
+  </div>
+  
+    
+      
     </div>
   </div>
   <div class="container">
@@ -896,6 +907,25 @@
       <div id="mediaInfo"></div>
     </div>
   </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <defs>
+      <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#e50914">
+          <animate attributeName="stop-color" values="#e50914; #ff8a00; #6a0dad; #e50914" dur="4s" repeatCount="indefinite" />
+        </stop>
+        <stop offset="100%" stop-color="#6a0dad">
+          <animate attributeName="stop-color" values="#6a0dad; #e50914; #ff8a00; #6a0dad" dur="4s" repeatCount="indefinite" />
+        </stop>
+      </linearGradient>
+    </defs>
+    <circle cx="32" cy="32" r="28" fill="url(#pulseGradient)">
+      <animate attributeName="r" values="28;32;28" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="32" y="38" font-family="Poppins, sans-serif" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">
+      FM
+    </text>
+  </svg>
+  
 
   <script>const CONFIG = {
   apiKeys: {
@@ -1232,6 +1262,10 @@ function loadVideo(url, mediaDetails = null) {
                 allow="autoplay; encrypted-media; picture-in-picture"
               ></iframe>
             </div>
+            <div class="note-message">
+    Note: You will be redirected once or twice, just come back and after that, it will deactivate and the video will play.
+</div>
+
             ${mediaDetails ? `
               <div class="media-details">
                 <h2>${mediaDetails.title || mediaDetails.name}</h2>
@@ -1561,6 +1595,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </svg>
                     Watch Now
                   </button>
+                  <div class="note-message">
+                    Note: You will be redirected once or twice, just come back and after that, it will deactivate.
+                  </div>
+
                 </div>
               </div>
             `).join('');
